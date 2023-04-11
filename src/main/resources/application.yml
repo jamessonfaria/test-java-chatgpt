@@ -1,0 +1,7 @@
+logging:
+  level:
+    br:
+      com:
+        jamesson:
+          testchatgpt:
+            client: DEBUG
