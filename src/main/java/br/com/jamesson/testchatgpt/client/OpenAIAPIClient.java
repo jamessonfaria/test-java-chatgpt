@@ -1,5 +1,6 @@
 package br.com.jamesson.testchatgpt.client;
 
+import br.com.jamesson.testchatgpt.dto.ChatRequestDto;
 import br.com.jamesson.testchatgpt.dto.CompletionRequestDto;
 import br.com.jamesson.testchatgpt.dto.CompletionResponseDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,6 +16,13 @@ public interface OpenAIAPIClient {
       @RequestBody CompletionRequestDto request,
       @RequestHeader("Authorization") String token
   );
+
+  @PostMapping(value = "/chat/completions", headers = "Content-Type: application/json")
+  String postChat(
+      @RequestBody ChatRequestDto request,
+      @RequestHeader("Authorization") String token
+  );
+
 
 }
 

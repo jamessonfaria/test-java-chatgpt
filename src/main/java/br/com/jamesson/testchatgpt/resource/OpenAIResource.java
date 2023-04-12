@@ -1,5 +1,6 @@
 package br.com.jamesson.testchatgpt.resource;
 
+import br.com.jamesson.testchatgpt.dto.ChatRequestDto;
 import br.com.jamesson.testchatgpt.dto.CompletionRequestDto;
 import br.com.jamesson.testchatgpt.dto.CompletionResponseDto;
 import br.com.jamesson.testchatgpt.service.OpenAIService;
@@ -16,12 +17,20 @@ public class OpenAIResource {
   @Autowired
   private OpenAIService openaiService;
 
-  @PostMapping(value = "/openai/completions", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/create/completions", consumes = MediaType.APPLICATION_JSON_VALUE)
   public CompletionResponseDto postCompletion(
       @RequestBody CompletionRequestDto request,
       @RequestHeader String authorization
   ) {
     return openaiService.postCompletion(request, authorization);
+  }
+
+  @PostMapping(value = "/create/chat", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public String postChat(
+      @RequestBody ChatRequestDto request,
+      @RequestHeader String authorization
+  ) {
+    return openaiService.postChat(request, authorization);
   }
 
 }
