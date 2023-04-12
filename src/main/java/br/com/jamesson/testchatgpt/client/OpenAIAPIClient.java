@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "openai", url = "https://api.openai.com/v1", configuration = FeignConfig.class)
+@FeignClient(name = "openai", url = "https://api.openai.com/v1")
 public interface OpenAIAPIClient {
 
   @PostMapping(value = "/completions", headers = "Content-Type: application/json")

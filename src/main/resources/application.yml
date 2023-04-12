@@ -5,3 +5,9 @@ logging:
         jamesson:
           testchatgpt:
             client: DEBUG
+
+feign:
+  client:
+    config:
+      openai:
+        loggerLeveL: full
